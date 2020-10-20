@@ -1,9 +1,15 @@
 import express from "express";
 import dotenv from "dotenv";
+import connectDB from "./config/db.js";
 import products from "./data/products.js";
 
+//Calls all the variables in .env
 dotenv.config();
 
+//Connects The MongoDB Database.
+connectDB();
+
+//Initialises Express
 const app = express();
 
 app.get("/", (req, res) => {
