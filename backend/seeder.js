@@ -45,3 +45,25 @@ const importData = async () => {
     //passing in a 1 exits with failure.
   }
 };
+
+const destroyData = async () => {
+  try {
+    //imported the Current models below and deleted them
+    await Order.deleteMany();
+    await Product.deleteMany();
+    await User.deleteMany();
+
+    console.log("Data Destroyed!".red.inverse);
+    process.exit();
+  } catch (error) {
+    console.error(`${error}`.red.inverse);
+    process.exit(1);
+    //passing in a 1 exits with failure.
+  }
+};
+
+if (process.argv[2] === "-d") {
+  destroyData();
+} else {
+  importData();
+}
