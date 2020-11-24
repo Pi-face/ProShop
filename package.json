@@ -1,7 +1,7 @@
 {
   "name": "proshop",
   "version": "1.0.0",
-  "description": "MERN Shopping Cart Application",
+  "description": "MERN shopping cart app",
   "main": "server.js",
   "type": "module",
   "scripts": {
@@ -10,10 +10,11 @@
     "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "data:import": "node backend/seeder",
-    "data:destroy": "node backend/seeder -d"
+    "data:destroy": "node backend/seeder -d",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
-  "author": "juan",
-  "license": "ISC",
+  "author": "Brad Traversy",
+  "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
@@ -21,10 +22,12 @@
     "express": "^4.17.1",
     "express-async-handler": "^1.1.4",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.10.9"
+    "mongoose": "^5.10.6",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2"
   },
   "devDependencies": {
     "concurrently": "^5.3.0",
-    "nodemon": "^2.0.5"
+    "nodemon": "^2.0.4"
   }
 }
